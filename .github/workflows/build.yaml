@@ -3,12 +3,12 @@ name: Deploy docs to Cloudflare Pages
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'howto/**'
   pull_request:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'howto/**'
 
