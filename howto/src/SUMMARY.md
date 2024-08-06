@@ -4,7 +4,7 @@
 
 # Club Management
 
-- [동아리 관리](club/README.md)
+- [동아리 관리할까?](club/README.md)
     - [바방-프린터-설치하기](club/바방-프린터-설치하기.md)
     - [이메일](club/이메일.md)
     - [회원변동](club/회원변동.md)
