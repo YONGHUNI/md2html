@@ -1,0 +1,188 @@
+{
+  "hostname": "rum",
+  "product": {
+    "name": "Dell Inc. PowerEdge R710",
+    "sku": "Not Specified",
+    "serial": "6R5FSBX",
+    "board_name": "Dell Inc. 00NH4P",
+    "board_serial": "..CN137400AR01X7."
+  },
+  "bios": {
+    "version": "2.1.15",
+    "revision": "2.1",
+    "date": "2010-09-02",
+    "firmware_revision": null
+  },
+  "processor": {
+    "num_sockets": 2,
+    "num_populated": 2,
+    "populated": [
+      {
+        "socket": "Socket LGA1366",
+        "version": "Intel(R) Xeon(R) CPU           E5640  @ 2.67GHz",
+        "max_speed": "3600 MHz",
+        "num_cores": 4,
+        "num_threads": 8
+      },
+      {
+        "socket": "Socket LGA1366",
+        "version": "Intel(R) Xeon(R) CPU           E5640  @ 2.67GHz",
+        "max_speed": "3600 MHz",
+        "num_cores": 4,
+        "num_threads": 8
+      }
+    ],
+    "unpopulated": []
+  },
+  "memory": {
+    "slots": [
+      {
+        "ecc": "Multi-bit ECC",
+        "num_slots": 18,
+        "maximum_capacity": "192 GB"
+      }
+    ],
+    "num_populated": 6,
+    "populated": [
+      {
+        "size": "4 GB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_A1"
+      },
+      {
+        "size": "4 GB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_A2"
+      },
+      {
+        "size": "4 GB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_A3"
+      },
+      {
+        "size": "4 GB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_B1"
+      },
+      {
+        "size": "4 GB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_B2"
+      },
+      {
+        "size": "4 GB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_B3"
+      }
+    ]
+  },
+  "network_ports": [
+    {
+      "ifname": "eno1",
+      "mac_address": "84:2b:2b:6c:25:c7",
+      "addresses": []
+    },
+    {
+      "ifname": "eno2",
+      "mac_address": "84:2b:2b:6c:25:c9",
+      "addresses": []
+    },
+    {
+      "ifname": "eno3",
+      "mac_address": "84:2b:2b:6c:25:cb",
+      "addresses": []
+    },
+    {
+      "ifname": "eno4",
+      "mac_address": "84:2b:2b:6c:25:cd",
+      "addresses": []
+    }
+  ],
+  "storage": [
+    {
+      "model": "PERC_6_i",
+      "tran": null,
+      "size": "463.5G",
+      "wwn": "0x6842b2b06d62010021c62f390a07f243",
+      "serial": "0043f2070a392fc6210001626db0b242"
+    }
+  ],
+  "slots": [
+    {
+      "designation": "PCI1",
+      "type": "x4 PCI Express 2 x8",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "1",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ]
+    },
+    {
+      "designation": "PCI2",
+      "type": "x4 PCI Express 2 x8",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "2",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ]
+    },
+    {
+      "designation": "PCI3",
+      "type": "x8 PCI Express 2",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "3",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ]
+    },
+    {
+      "designation": "PCI4",
+      "type": "x8 PCI Express 2",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "4",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ]
+    }
+  ],
+  "power": {
+    "num_psus": 0,
+    "psu_capacity": []
+  },
+  "ipmi": {
+    "num_dedicated_ports": 0,
+    "specification_version": "2.0"
+  }
+}

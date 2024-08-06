@@ -1,0 +1,150 @@
+{
+  "hostname": "blanc",
+  "product": {
+    "name": "Dell Inc. PowerEdge R410",
+    "sku": "Not Specified",
+    "serial": "63SWNBX",
+    "board_name": "Dell Inc. 0N051F",
+    "board_serial": "..CN137409AJ014D."
+  },
+  "bios": {
+    "version": "1.1.5",
+    "revision": "1.1",
+    "date": "2009-07-29",
+    "firmware_revision": null
+  },
+  "processor": {
+    "num_sockets": 2,
+    "num_populated": 2,
+    "populated": [
+      {
+        "socket": "Socket LGA1366",
+        "version": "Intel(R) Xeon(R) CPU           E5520  @ 2.27GHz",
+        "max_speed": "3600 MHz",
+        "num_cores": 4,
+        "num_threads": 8
+      },
+      {
+        "socket": "Socket LGA1366",
+        "version": "Intel(R) Xeon(R) CPU           E5520  @ 2.27GHz",
+        "max_speed": "3600 MHz",
+        "num_cores": 4,
+        "num_threads": 8
+      }
+    ],
+    "unpopulated": []
+  },
+  "memory": {
+    "slots": [
+      {
+        "ecc": "Multi-bit ECC",
+        "num_slots": 8,
+        "maximum_capacity": "128 GB"
+      }
+    ],
+    "num_populated": 6,
+    "populated": [
+      {
+        "size": "2048 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_A1"
+      },
+      {
+        "size": "2048 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_A2"
+      },
+      {
+        "size": "2048 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_A3"
+      },
+      {
+        "size": "2048 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_B1"
+      },
+      {
+        "size": "2048 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_B2"
+      },
+      {
+        "size": "2048 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_B3"
+      }
+    ]
+  },
+  "network_ports": [
+    {
+      "ifname": "eno1",
+      "mac_address": "00:26:b9:49:8f:2b",
+      "addresses": [
+        {
+          "address": "147.46.242.187/24",
+          "family": "inet"
+        }
+      ]
+    },
+    {
+      "ifname": "eno2",
+      "mac_address": "00:26:b9:49:8f:2c",
+      "addresses": []
+    }
+  ],
+  "storage": [
+    {
+      "model": "VIRTUAL_DISK",
+      "tran": "sas",
+      "size": "931G",
+      "wwn": "0x600508e0000000003c7c890d3a7bb602",
+      "serial": "600508e0000000003c7c890d3a7bb602"
+    }
+  ],
+  "slots": [
+    {
+      "designation": "PCI1",
+      "type": "x16 PCI Express 2 x16",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "1",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ]
+    }
+  ],
+  "power": {
+    "num_psus": 0,
+    "psu_capacity": []
+  },
+  "ipmi": {
+    "num_dedicated_ports": 0,
+    "specification_version": "2.0"
+  }
+}

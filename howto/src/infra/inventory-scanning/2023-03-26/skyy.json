@@ -1,0 +1,136 @@
+{
+  "hostname": "skyy",
+  "product": {
+    "name": "Dell Inc. PowerEdge R420",
+    "sku": "SKU=NotProvided;ModelName=PowerEdge R420",
+    "serial": "64WNYBX",
+    "board_name": "Dell Inc. 072XWF",
+    "board_serial": "..CN13740298006R."
+  },
+  "bios": {
+    "version": "1.3.5",
+    "revision": "1.3",
+    "date": "2012-08-21",
+    "firmware_revision": null
+  },
+  "processor": {
+    "num_sockets": 2,
+    "num_populated": 1,
+    "populated": [
+      {
+        "socket": "Socket LGA1356",
+        "version": "Intel(R) Xeon(R) CPU E5-2407 0 @ 2.20GHz",
+        "max_speed": "3600 MHz",
+        "num_cores": 4,
+        "num_threads": 4
+      }
+    ],
+    "unpopulated": [
+      {
+        "socket": "Socket LGA1356"
+      }
+    ]
+  },
+  "memory": {
+    "slots": [
+      {
+        "ecc": "Multi-bit ECC",
+        "num_slots": 12,
+        "maximum_capacity": "384 GB"
+      }
+    ],
+    "num_populated": 3,
+    "populated": [
+      {
+        "size": "4096 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Unbuffered (Unregistered)",
+        "speed": "1333 MT/s",
+        "configured_speed": "1067 MT/s",
+        "locator": "DIMM_A1"
+      },
+      {
+        "size": "4096 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Unbuffered (Unregistered)",
+        "speed": "1333 MT/s",
+        "configured_speed": "1067 MT/s",
+        "locator": "DIMM_A2"
+      },
+      {
+        "size": "4096 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Unbuffered (Unregistered)",
+        "speed": "1333 MT/s",
+        "configured_speed": "1067 MT/s",
+        "locator": "DIMM_A3"
+      }
+    ]
+  },
+  "network_ports": [
+    {
+      "ifname": "eno1",
+      "mac_address": "90:b1:1c:0e:e0:f0",
+      "addresses": [
+        {
+          "address": "147.46.242.84/24",
+          "family": "inet"
+        }
+      ]
+    },
+    {
+      "ifname": "eno2",
+      "mac_address": "90:b1:1c:0e:e0:f1",
+      "addresses": [
+        {
+          "address": "192.168.0.2/24",
+          "family": "inet"
+        }
+      ]
+    }
+  ],
+  "storage": [
+    {
+      "model": "PERC_H310",
+      "tran": null,
+      "size": "2.7T",
+      "wwn": "0x690b11c01b5b330020252f0c0fe56815",
+      "serial": "690b11c01b5b330020252f0c0fe56815"
+    }
+  ],
+  "slots": [
+    {
+      "designation": "PCI1",
+      "type": "x4 PCI Express 2 x8",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "1",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ]
+    },
+    {
+      "designation": "PCI2",
+      "type": "x16 PCI Express 3",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "2",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ]
+    }
+  ],
+  "power": {
+    "num_psus": 0,
+    "psu_capacity": []
+  },
+  "ipmi": {
+    "num_dedicated_ports": 0,
+    "specification_version": "2.0"
+  }
+}

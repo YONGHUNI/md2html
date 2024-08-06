@@ -1,0 +1,132 @@
+{
+  "hostname": "sherry",
+  "product": {
+    "name": "Dell Inc. PowerEdge R410",
+    "sku": "Not Specified",
+    "serial": "FYTJWBX",
+    "board_name": "Dell Inc. 01V648",
+    "board_serial": "..CN137401BS00SL."
+  },
+  "bios": {
+    "version": "1.9.0",
+    "revision": "1.9",
+    "date": "2011-10-21",
+    "firmware_revision": null
+  },
+  "processor": {
+    "num_sockets": 2,
+    "num_populated": 1,
+    "populated": [
+      {
+        "socket": "Socket LGA1366",
+        "version": "Intel(R) Xeon(R) CPU           E5530  @ 2.40GHz",
+        "max_speed": "3600 MHz",
+        "num_cores": 4,
+        "num_threads": 8
+      }
+    ],
+    "unpopulated": [
+      {
+        "socket": "Socket LGA1366"
+      }
+    ]
+  },
+  "memory": {
+    "slots": [
+      {
+        "ecc": "Multi-bit ECC",
+        "num_slots": 8,
+        "maximum_capacity": "128 GB"
+      }
+    ],
+    "num_populated": 2,
+    "populated": [
+      {
+        "size": "4096 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_A1"
+      },
+      {
+        "size": "4096 MB",
+        "type": "DDR3",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "1333 MT/s",
+        "configured_speed": null,
+        "locator": "DIMM_A2"
+      }
+    ]
+  },
+  "network_ports": [
+    {
+      "ifname": "eno1",
+      "mac_address": "d4:ae:52:67:4b:a5",
+      "addresses": [
+        {
+          "address": "147.46.78.91/24",
+          "family": "inet"
+        }
+      ]
+    },
+    {
+      "ifname": "eno2",
+      "mac_address": "d4:ae:52:67:4b:a6",
+      "addresses": []
+    }
+  ],
+  "storage": [
+    {
+      "model": "Samsung_SSD_850",
+      "tran": "sas",
+      "size": "111.8G",
+      "wwn": "0x5002538d407788af",
+      "serial": "5002538d407788af"
+    },
+    {
+      "model": "WDC_WD40EFRX-68W",
+      "tran": "sas",
+      "size": "2T",
+      "wwn": "0x50014ee2b7d04cc5",
+      "serial": "50014ee2b7d04cc5"
+    },
+    {
+      "model": "Samsung_SSD_860",
+      "tran": "sas",
+      "size": "931.5G",
+      "wwn": "0x5002538e60001dfb",
+      "serial": "5002538e60001dfb"
+    },
+    {
+      "model": "Samsung_SSD_860",
+      "tran": "sas",
+      "size": "931.5G",
+      "wwn": "0x5002538e60001dda",
+      "serial": "5002538e60001dda"
+    }
+  ],
+  "slots": [
+    {
+      "designation": "PCI1",
+      "type": "x16 PCI Express 2 x16",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "1",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ]
+    }
+  ],
+  "power": {
+    "num_psus": 0,
+    "psu_capacity": []
+  },
+  "ipmi": {
+    "num_dedicated_ports": 0,
+    "specification_version": "2.0"
+  }
+}

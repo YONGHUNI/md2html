@@ -1,0 +1,151 @@
+{
+  "hostname": "joker",
+  "product": {
+    "name": "HP ProLiant DL360 Gen9",
+    "sku": "755258-B21",
+    "serial": "SGH640WRD6",
+    "board_name": "HP ProLiant DL360 Gen9",
+    "board_serial": "SGH640WRD6"
+  },
+  "bios": {
+    "version": "P89",
+    "revision": "2.22",
+    "date": "2016-07-18",
+    "firmware_revision": "2.40"
+  },
+  "processor": {
+    "num_sockets": 2,
+    "num_populated": 1,
+    "populated": [
+      {
+        "socket": "Socket LGA2011-3",
+        "version": "Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz",
+        "max_speed": "4000 MHz",
+        "num_cores": 8,
+        "num_threads": 16
+      }
+    ],
+    "unpopulated": [
+      {
+        "socket": "Socket LGA2011-3"
+      }
+    ]
+  },
+  "memory": {
+    "slots": [
+      {
+        "ecc": "Multi-bit ECC",
+        "num_slots": 12,
+        "maximum_capacity": "1536 GB"
+      },
+      {
+        "ecc": "Multi-bit ECC",
+        "num_slots": 12,
+        "maximum_capacity": "1536 GB"
+      }
+    ],
+    "num_populated": 7,
+    "populated": [
+      {
+        "size": "16384 MB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "2133 MHz",
+        "configured_speed": null,
+        "locator": "PROC 1 DIMM 1"
+      },
+      {
+        "size": "16384 MB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "2133 MHz",
+        "configured_speed": null,
+        "locator": "PROC 1 DIMM 2"
+      },
+      {
+        "size": "16384 MB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "2133 MHz",
+        "configured_speed": null,
+        "locator": "PROC 1 DIMM 4"
+      },
+      {
+        "size": "16384 MB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "2133 MHz",
+        "configured_speed": null,
+        "locator": "PROC 1 DIMM 8"
+      },
+      {
+        "size": "16384 MB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "2133 MHz",
+        "configured_speed": null,
+        "locator": "PROC 1 DIMM 9"
+      },
+      {
+        "size": "16384 MB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "2133 MHz",
+        "configured_speed": null,
+        "locator": "PROC 1 DIMM 11"
+      },
+      {
+        "size": "16384 MB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "2133 MHz",
+        "configured_speed": null,
+        "locator": "PROC 1 DIMM 12"
+      }
+    ]
+  },
+  "network_ports": ["1G 짜리 4개 있음. ip 버전이 너무 낮아서 데이터는 못 뽑았어요. 147.46.242.183/24"],
+  "storage": ["1.1T짜리 scsi-3600508b1001cd2ff9f66fe637a352a5b 1개 있음. lsblk 버전이 너무 낮아서 데이터는 못 뽑았어요."],
+  "slots": [
+    {
+      "designation": "PCI-E Slot 2",
+      "type": "x8 PCI Express 3",
+      "current_usage": "Available",
+      "length": "Short",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ],
+      "bus_address": "0000:05:00.0"
+    },
+    {
+      "designation": "PCI-E Slot 1",
+      "type": "x16 PCI Express 3",
+      "current_usage": "Available",
+      "length": "Long",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ],
+      "bus_address": "0000:08:00.0"
+    }
+  ],
+  "power": {
+    "num_psus": 2,
+    "psu_capacity": [
+      "500 W",
+      "500 W"
+    ]
+  },
+  "ipmi": {
+    "num_dedicated_ports": 1,
+    "specification_version": "2.0"
+  }
+}

@@ -1,0 +1,171 @@
+#!/usr/bin/env python3
+import json
+import subprocess
+import socket
+import re
+from datetime import datetime
+from typing import Dict, List
+
+# NOTE:
+# Ceph RBD를 물리 디스크로 인식하여 출력 JSON에 포함시킵니다. (Proxmox VE 를 돌리는 머신에서 사용할 때 문제가 됨)
+# DELL 계열 머신은 IPMI 전용 RJ-45포트의 존재를 제대로 인식을 못합니다
+# 'jc' 유틸리티를 요구합니다. (Ubuntu는 22.10부터 repository에 있늠)
+
+dmi = json.loads(subprocess.run(['sudo', 'jc', 'dmidecode'], capture_output=True, check=True, encoding='utf-8').stdout)
+lsblk = json.loads(subprocess.run(['sudo', 'lsblk', '--json', '--output-all', '--tree'], capture_output=True, check=True, encoding='utf-8').stdout)
+ip_links = json.loads(subprocess.run(['sudo', 'ip', '-details', '-json', 'link'], capture_output=True, check=True, encoding='utf-8').stdout)
+ip_addrs = json.loads(subprocess.run(['sudo', 'ip', '-details', '-json', 'address'], capture_output=True, check=True, encoding='utf-8').stdout)
+
+def dmi_get_by_type(type_code: int) -> List[Dict[str, str]]:
+    return list(map(lambda d: d['values'], filter(lambda d: d['type'] == type_code, dmi)))
+
+def dmi_one_by_type(type_code: int) -> Dict[str, str]:
+    filtered = dmi_get_by_type(type_code)
+    if len(filtered) != 1:
+        raise Exception(f'There are {len(filtered)} entries (1 expected) for DMI entry for code {type_code}')
+    return filtered[0]
+
+def ip_addr_by_ifname(ifname: str) -> List[Dict[str, str]]:
+    link_addrs = []
+    for ip_addr in filter(lambda addr: addr['ifname'] == ifname, ip_addrs):
+        for addr_info in ip_addr['addr_info']:
+            if addr_info['scope'] != 'global':
+                continue
+            link_addrs.append({
+                'address': f"{addr_info['local']}/{addr_info['prefixlen']}",
+                'family': addr_info['family'],
+            })
+    return link_addrs
+
+dmi_system = dmi_one_by_type(1)
+dmi_baseboard = dmi_one_by_type(2)
+dmi_bios = dmi_one_by_type(0)
+dmi_ports = dmi_get_by_type(8)
+dmi_memory_arrays = dmi_get_by_type(16)
+
+memory_slots = []
+for dmi_memory_array in dmi_memory_arrays:
+    memory_slots.append({
+        'ecc': dmi_memory_array['error_correction_type'],
+        'num_slots': int(dmi_memory_array['number_of_devices']),
+        'maximum_capacity': dmi_memory_array['maximum_capacity'],
+    })
+
+num_ipmi_ports = 0
+for port in dmi_ports:
+    if re.match('.*(ILO|IPMI).*', port['external_reference_designator']):
+        num_ipmi_ports += 1
+
+try:
+    dmi_ipmi = dmi_one_by_type(38)
+    ipmi_specification_version = dmi_ipmi['specification_version']
+except Exception:
+    ipmi_specification_version = None
+
+dmi_powers = dmi_get_by_type(39)
+powers = []
+for dmi_power in dmi_powers:
+    if dmi_power['status'] == 'Not Present':
+        continue
+    powers.append(dmi_power['max_power_capacity'])
+
+dmi_processors = dmi_get_by_type(4)
+unpopulated_processors = []
+populated_processors = []
+for dmi_processor in dmi_processors:
+    if dmi_processor['status'] == 'Unpopulated':
+        unpopulated_processors.append({
+            'socket': dmi_processor['upgrade'],
+        })
+        continue
+    populated_processors.append({
+        'socket': dmi_processor['upgrade'],
+        'version': dmi_processor['version'],
+        'max_speed': dmi_processor['max_speed'],
+        'num_cores': int(dmi_processor['core_count']),
+        'num_threads': int(dmi_processor['thread_count']),
+    })
+
+dmi_memory_devices = dmi_get_by_type(17)
+populated_memories = []
+for dmi_memory_device in dmi_memory_devices:
+    if dmi_memory_device['size'] == 'No Module Installed':
+        continue
+    populated_memories.append({
+        'size': dmi_memory_device['size'],
+        'type': dmi_memory_device['type'],
+        'form_factor': dmi_memory_device['form_factor'],
+        'ecc': dmi_memory_device['type_detail'],
+        'speed': dmi_memory_device['speed'],
+        'configured_speed': dmi_memory_device.get('configured_memory_speed'),
+        'locator': dmi_memory_device['locator'],
+    })
+
+dmi_slots = dmi_get_by_type(9)
+
+disks = []
+for blockdev in lsblk['blockdevices']:
+    if blockdev['type'] != 'disk':
+        continue
+    if 'nbd' in blockdev['name']:
+        continue
+    disks.append({
+        'model': blockdev['model'],
+        'tran': blockdev['tran'],
+        'size': blockdev['size'],
+        'wwn': blockdev['wwn'],
+        'serial': blockdev['serial'],
+    })
+
+ports = []
+for ip_link in ip_links:
+    if ip_link['link_type'] != 'ether':
+        continue
+    if 'linkinfo' in ip_link and 'info_kind' in ip_link['linkinfo']:
+        continue
+    ports.append({
+        'ifname': ip_link['ifname'],
+        'mac_address': ip_link['address'],
+        'addresses': ip_addr_by_ifname(ip_link['ifname']),
+    })
+
+ret = {
+    'hostname': socket.gethostname(),
+    'product': {
+        'name': f"{dmi_system['manufacturer']} {dmi_system['product_name']}",
+        'sku': dmi_system['sku_number'],
+        'serial': dmi_system['serial_number'],
+        'board_name': f"{dmi_baseboard['manufacturer']} {dmi_baseboard['product_name']}",
+        'board_serial': dmi_baseboard['serial_number'],
+    },
+    'bios': {
+        'version': dmi_bios['version'],
+        'revision': dmi_bios['bios_revision'],
+        'date': datetime.strptime(dmi_bios['release_date'], '%m/%d/%Y').strftime('%Y-%m-%d'),
+        'firmware_revision': dmi_bios.get('firmware_revision'),
+    },
+    'processor': {
+        'num_sockets': len(dmi_processors),
+        'num_populated': len(populated_processors),
+        'populated': populated_processors,
+        'unpopulated': unpopulated_processors,
+    },
+    'memory': {
+        'slots': memory_slots,
+        'num_populated': len(populated_memories),
+        'populated': populated_memories,
+    },
+    'network_ports': ports,
+    'storage': disks,
+    'slots': dmi_slots,
+    'power': {
+        'num_psus': len(powers),
+        'psu_capacity': powers,
+    },
+    'ipmi': {
+        'num_dedicated_ports': num_ipmi_ports,
+        'specification_version': ipmi_specification_version,
+    },
+}
+
+print(json.dumps(ret))

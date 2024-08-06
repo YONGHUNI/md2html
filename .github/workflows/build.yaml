@@ -1,43 +1,38 @@
-name: Build
+name: Deploy docs to Cloudflare Pages
+
 on:
   push:
     branches:
-      - main
+      - 'master'
+    paths:
+      - 'howto/**'
   pull_request:
     branches:
-      - main
-
-permissions:
-  contents: read
-  id-token: write
-  packages: write
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+      - 'master'
+    paths:
+      - 'howto/**'
 
 jobs:
-  build:
+  deploy:
+    defaults:
+      run:
+        working-directory: ./howto
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: docker/setup-buildx-action@v3
-      - uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: docker/metadata-action@v5
-        id: meta
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
-      - uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          annotations:  ${{ steps.meta.outputs.annotations }}
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup mdBook
+        env:
+          MDBOOK_VERSION: v0.4.23
+          MDBOOK_MERMAID_VERSION: v0.12.6
+        run: |
+          mkdir -p bin
+          wget -qO- \
+            https://github.com/rust-lang/mdBook/releases/download/${MDBOOK_VERSION}/mdbook-${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz | \
+            tar -xvz --directory=bin
+          wget -qO- \
+            https://github.com/badboy/mdbook-mermaid/releases/download/${MDBOOK_MERMAID_VERSION}/mdbook-mermaid-${MDBOOK_MERMAID_VERSION}-x86_64-unknown-linux-gnu.tar.gz | \
+            tar -xvz --directory=bin
+          echo "${PWD}/bin" >> $GITHUB_PATH
+      - name: Build
+        run: mdbook build

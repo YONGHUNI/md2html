@@ -1,0 +1,125 @@
+{
+  "hostname": "oloroso",
+  "product": {
+    "name": "HPE ProLiant DL20 Gen10",
+    "sku": "P17081-B21",
+    "serial": "SGH105VM4B",
+    "board_name": "HPE ProLiant DL20 Gen10",
+    "board_serial": "PWZWVB3WGEP0TN"
+  },
+  "bios": {
+    "version": "U43",
+    "revision": "2.20",
+    "date": "2020-10-27",
+    "firmware_revision": "2.31"
+  },
+  "processor": {
+    "num_sockets": 1,
+    "num_populated": 1,
+    "populated": [
+      {
+        "socket": "Socket LGA1151",
+        "version": "Intel(R) Xeon(R) E-2236 CPU @ 3.40GHz",
+        "max_speed": "4300 MHz",
+        "num_cores": 6,
+        "num_threads": 12
+      }
+    ],
+    "unpopulated": []
+  },
+  "memory": {
+    "slots": [
+      {
+        "ecc": "Multi-bit ECC",
+        "num_slots": 4,
+        "maximum_capacity": "64 GB"
+      }
+    ],
+    "num_populated": 1,
+    "populated": [
+      {
+        "size": "16 GB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Unbuffered (Unregistered)",
+        "speed": "2666 MT/s",
+        "configured_speed": "2667 MT/s",
+        "locator": "PROC 1 DIMM 3"
+      }
+    ]
+  },
+  "network_ports": [
+    {
+      "ifname": "eno1",
+      "mac_address": "b4:7a:f1:2d:a2:b8",
+      "addresses": [
+        {
+          "address": "147.46.241.60/24",
+          "family": "inet"
+        }
+      ]
+    },
+    {
+      "ifname": "eno2",
+      "mac_address": "b4:7a:f1:2d:a2:b9",
+      "addresses": []
+    }
+  ],
+  "storage": [
+    {
+      "model": "Samsung SSD 870 EVO 4TB",
+      "tran": "sata",
+      "size": "3.6T",
+      "wwn": "0x5002538f3170bed7",
+      "serial": "S6BANJ0R700885L"
+    }
+  ],
+  "slots": [
+    {
+      "designation": "NVMe Slot",
+      "type": "x4 M.2 Socket 1-DP",
+      "current_usage": "Available",
+      "length": "Other",
+      "characteristics": [
+        "3.3 V is provided",
+        "Hot-plug devices are supported",
+        "SMBus signal is supported"
+      ],
+      "bus_address": "0000:03:00.0"
+    },
+    {
+      "designation": "PCI-E Slot 1",
+      "type": "x8 PCI Express 3",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "1",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ],
+      "bus_address": "0000:05:00.0"
+    },
+    {
+      "designation": "PCI-E Slot 2",
+      "type": "x8 PCI Express 3",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "2",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ],
+      "bus_address": "0000:06:00.0"
+    }
+  ],
+  "power": {
+    "num_psus": 1,
+    "psu_capacity": [
+      "500 W"
+    ]
+  },
+  "ipmi": {
+    "num_dedicated_ports": 1,
+    "specification_version": "2.0"
+  }
+}

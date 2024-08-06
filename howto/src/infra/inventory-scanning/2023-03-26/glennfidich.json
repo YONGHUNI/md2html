@@ -1,0 +1,155 @@
+{
+  "hostname": "glennfidich",
+  "product": {
+    "name": "HP ProLiant DL360 Gen9",
+    "sku": "818208-B21",
+    "serial": "CN770308MB",
+    "board_name": "HP ProLiant DL360 Gen9",
+    "board_serial": "CN770308MB"
+  },
+  "bios": {
+    "version": "P89",
+    "revision": "2.30",
+    "date": "2016-09-13",
+    "firmware_revision": "2.40"
+  },
+  "processor": {
+    "num_sockets": 2,
+    "num_populated": 1,
+    "populated": [
+      {
+        "socket": "Socket LGA2011-3",
+        "version": "Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz",
+        "max_speed": "4000 MHz",
+        "num_cores": 10,
+        "num_threads": 20
+      }
+    ],
+    "unpopulated": [
+      {
+        "socket": "Socket LGA2011-3"
+      }
+    ]
+  },
+  "memory": {
+    "slots": [
+      {
+        "ecc": "Multi-bit ECC",
+        "num_slots": 12,
+        "maximum_capacity": "1536 GB"
+      },
+      {
+        "ecc": "Multi-bit ECC",
+        "num_slots": 12,
+        "maximum_capacity": "1536 GB"
+      }
+    ],
+    "num_populated": 2,
+    "populated": [
+      {
+        "size": "8 GB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "2133 MT/s",
+        "configured_speed": "2133 MT/s",
+        "locator": "PROC 1 DIMM 9"
+      },
+      {
+        "size": "8 GB",
+        "type": "DDR4",
+        "form_factor": "DIMM",
+        "ecc": "Synchronous Registered (Buffered)",
+        "speed": "2133 MT/s",
+        "configured_speed": "2133 MT/s",
+        "locator": "PROC 1 DIMM 12"
+      }
+    ]
+  },
+  "network_ports": [
+    {
+      "ifname": "eno1",
+      "mac_address": "94:18:82:81:6d:f0",
+      "addresses": []
+    },
+    {
+      "ifname": "eno2",
+      "mac_address": "94:18:82:81:6d:f1",
+      "addresses": []
+    },
+    {
+      "ifname": "eno3",
+      "mac_address": "94:18:82:81:6d:f2",
+      "addresses": [
+        {
+          "address": "10.1.0.1/24",
+          "family": "inet"
+        }
+      ]
+    },
+    {
+      "ifname": "eno4",
+      "mac_address": "94:18:82:81:6d:f3",
+      "addresses": []
+    }
+  ],
+  "storage": [
+    {
+      "model": "LOGICAL_VOLUME",
+      "tran": "sas",
+      "size": "223.5G",
+      "wwn": "0x600508b1001c8ad161c1ea582fe1dd90",
+      "serial": "PDNLH0BRH59K7U"
+    },
+    {
+      "model": "LOGICAL_VOLUME",
+      "tran": "sas",
+      "size": "931.5G",
+      "wwn": "0x600508b1001c69324edd32b11a656234",
+      "serial": "PDNLH0BRH59K7U"
+    },
+    {
+      "model": "LUN_00_Media_0",
+      "tran": "usb",
+      "size": "512M",
+      "wwn": null,
+      "serial": "000002660A01"
+    }
+  ],
+  "slots": [
+    {
+      "designation": "PCI-E Slot 2",
+      "type": "x8 PCI Express 3",
+      "current_usage": "Available",
+      "length": "Short",
+      "id": "2",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ],
+      "bus_address": "0000:05:00.0"
+    },
+    {
+      "designation": "PCI-E Slot 1",
+      "type": "x16 PCI Express 3",
+      "current_usage": "Available",
+      "length": "Long",
+      "id": "1",
+      "characteristics": [
+        "3.3 V is provided",
+        "PME signal is supported"
+      ],
+      "bus_address": "0000:08:00.0"
+    }
+  ],
+  "power": {
+    "num_psus": 1,
+    "psu_capacity": [
+      "500 W"
+    ]
+  },
+  "ipmi": {
+    "num_dedicated_ports": 1,
+    "specification_version": "2.0"
+  }
+}
